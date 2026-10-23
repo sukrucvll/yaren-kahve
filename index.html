@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yâren — Her fincanda ortak bir hikâye</title>
+  <meta name="description" content="Yâren, geleneksel Türk kahvesini espresso ve modern demleme kültürüyle buluşturan bir kahve markası.">
+  <meta name="theme-color" content="#f6f1e7">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Fraunces:ital,opsz,wght@0,9..144,200..800;1,9..144,200..800&display=swap" rel="stylesheet">
+
+  <link rel="preload" as="image" href="assets/img/hero.jpg">
+  <link rel="stylesheet" href="css/style.css">
+  <script>
+    // Açılış perdesi oturum başına bir kez gösterilir
+    document.documentElement.classList.add("js");
+    try {
+      if (sessionStorage.getItem("yaren-intro")) document.documentElement.classList.add("intro-seen");
+    } catch (e) {
+      document.documentElement.classList.add("intro-seen");
+    }
+  </script>
+</head>
+<body id="top">
+  <a class="skip-link" href="#main">İçeriğe geç</a>
+
+  <!-- Açılış perdesi ve sayfa ilerleme çubuğu (yalnızca görsel) -->
+  <div class="preloader" aria-hidden="true">
+    <p class="preloader-word">
+      <span style="--i:0">Y</span><span style="--i:1">â</span><span style="--i:2">r</span><span style="--i:3">e</span><span style="--i:4">n</span>
+    </p>
+    <p class="preloader-sub">Her fincanda ortak bir hikâye.</p>
+  </div>
+  <div class="scroll-progress" aria-hidden="true"></div>
+
+  <!-- ===== Üst menü (yüzen kapsül) ===== -->
+  <header class="site-header">
+    <div class="container">
+      <div class="nav-shell">
+        <a href="#top" class="logo" aria-label="Yâren ana sayfa">
+          <svg class="logo-mark" viewBox="0 0 32 32" aria-hidden="true">
+            <path d="M6 13h17v5a8.5 8.5 0 0 1-17 0z" />
+            <path d="M23 15h1.5a3 3 0 0 1 0 6H22" fill="none" />
+            <path class="steam" d="M11 9c0-2 2-2 2-4M16 9c0-2 2-2 2-4" fill="none" />
+          </svg>
+          <span>Yâren</span>
+        </a>
+
+        <nav class="site-nav" id="site-nav" aria-label="Ana menü">
+          <ul>
+            <li><a href="#hikaye">Hikâyemiz</a></li>
+            <li><a href="#kahveler">Kahveler</a></li>
+            <li><a href="#ritueller">Ritüel</a></li>
+            <li><a href="#iletisim">İletişim</a></li>
+          </ul>
+        </nav>
+
+        <a href="#iletisim" class="btn btn-dark btn-sm nav-cta magnetic">Bize yazın</a>
+
+        <button class="nav-toggle" aria-expanded="false" aria-controls="site-nav">
+          <span class="nav-toggle-bar"></span>
+          <span class="sr-only">Menüyü aç</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ===== Hero (bento) ===== -->
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="container hero-bento">
+        <div class="bento bento--main">
+          <img class="bento-bg" src="assets/img/hero.jpg" alt="" width="1920" height="1280">
+          <span class="chip chip--glass"><i class="dot"></i> Her gün taze kavrum</span>
+
+          <div class="hero-copy">
+            <h1 id="hero-title" class="hero-title" aria-label="Yâren">
+              <span class="char" style="--i:0" aria-hidden="true">Y</span><span class="char" style="--i:1" aria-hidden="true">â</span><span class="char" style="--i:2" aria-hidden="true">r</span><span class="char" style="--i:3" aria-hidden="true">e</span><span class="char" style="--i:4" aria-hidden="true">n</span>
+            </h1>
+            <p class="hero-slogan">Her fincanda ortak bir hikâye.</p>
+            <div class="hero-actions">
+              <a href="#kahveler" class="btn btn-light magnetic">
+                Kahveleri Keşfet
+                <span class="btn-icon"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 4v12m0 0-5-5m5 5 5-5" /></svg></span>
+              </a>
+              <p class="hero-note">Cezveden portafiltreye,<br>üç demleme geleneği.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="bento bento--olive">
+          <p class="bento-label">Est. 2026 · İstanbul</p>
+          <p class="bento-heading">Bakır cezvenin sabrı, espressonun <em>cesareti.</em></p>
+          <a href="#hikaye" class="bento-link">
+            Hikâyemizi okuyun
+            <span class="btn-icon btn-icon--sm"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15 15 5m0 0H7m8 0v8" /></svg></span>
+          </a>
+        </div>
+
+        <figure class="bento bento--photo">
+          <img src="assets/img/cezve.jpg" alt="Sıcak kumda köpürmeye başlayan bakır cezve" width="700" height="900">
+          <figcaption class="chip chip--glass">Kumda pişen Türk kahvesi</figcaption>
+          <span class="stamp" aria-hidden="true">
+            <svg viewBox="0 0 120 120">
+              <defs><path id="stamp-circle" d="M60 60m-44 0a44 44 0 1 1 88 0a44 44 0 1 1-88 0" /></defs>
+              <text><textPath href="#stamp-circle">GELENEK · ZANAAT · PAYLAŞIM · </textPath></text>
+            </svg>
+          </span>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===== Kayan bant ===== -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Türk Kahvesi</span><i>✦</i><span>Espresso</span><i>✦</i><span>Filtre Kahve</span><i>✦</i><span>Taze Kavrum</span><i>✦</i><span>Paylaşılan Anlar</span><i>✦</i>
+        <span>Türk Kahvesi</span><i>✦</i><span>Espresso</span><i>✦</i><span>Filtre Kahve</span><i>✦</i><span>Taze Kavrum</span><i>✦</i><span>Paylaşılan Anlar</span><i>✦</i>
+      </div>
+    </div>
+
+    <!-- ===== Hikâye ===== -->
+    <section class="section story" id="hikaye" aria-labelledby="story-title">
+      <div class="container">
+        <h2 id="story-title" class="sr-only">Hikâyemiz</h2>
+
+        <!-- Kelimeler, kaydırdıkça sırayla koyulaşır (js/main.js) -->
+        <p class="statement" data-word-fill>
+          “Yâren” eski Türkçede <em>dost</em> demek.
+          <span class="inline-img"><img src="assets/img/cezve.jpg" alt="" width="700" height="900" loading="lazy"></span>
+          Cezvenin köpüğünü, espressonun
+          <span class="inline-img"><img src="assets/img/ekipman.jpg" alt="" width="900" height="600" loading="lazy"></span>
+          yoğunluğunu ve yavaş demlemenin dinginliğini <em>aynı masada</em> buluşturuyoruz.
+        </p>
+
+        <div class="story-grid">
+          <div class="story-text reveal">
+            <p>
+              Kavurmaya Türk kahvesinin köpüğüyle başladık; zamanla espressonun yoğunluğunu ve
+              filtre kahvenin berrak aromalarını da sofraya ekledik. Yöntemler değişse de
+              niyet aynı: iyi çekirdek, özenli el ve paylaşılan bir an.
+            </p>
+            <a href="#kahveler" class="text-link">Menüye göz atın →</a>
+          </div>
+
+          <ul class="stats">
+            <li class="stat reveal"><strong><span data-count="3">3</span></strong><span>demleme geleneği tek çatı altında</span></li>
+            <li class="stat reveal"><strong><span data-count="12">12</span><small>sa</small></strong><span>içinde kavrulmuş taze çekirdek</span></li>
+            <li class="stat stat--accent reveal"><strong><span data-count="40">40</span><small>yıl</small></strong><span>bir fincan kahvenin hatırı</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Kahveler ===== -->
+    <section class="section products wood" id="kahveler" aria-labelledby="products-title">
+      <div class="container">
+        <div class="section-top reveal">
+          <div>
+            <h2 id="products-title" class="section-title" data-split>Üç yöntem, <em>tek tutku.</em></h2>
+          </div>
+          <p class="section-lead">Her biri kendi ritmiyle demlenen, her biri bir başka sohbete eşlik eden üç imza kahve.</p>
+        </div>
+
+        <div class="product-grid">
+          <article class="product-card product-card--interactive reveal">
+            <div class="product-media">
+              <img src="assets/img/turk-kahvesi.jpg" alt="Desenli porselen fincanda köpüklü Türk kahvesi" width="800" height="600" loading="lazy">
+              <span class="chip chip--glass product-tag">Geleneksel</span>
+              <span class="media-play" aria-hidden="true">
+                <svg viewBox="0 0 20 20"><path d="M7 5.5v9l7-4.5z" /></svg>
+              </span>
+            </div>
+            <div class="product-body">
+              <div class="product-head">
+                <h3 class="product-name">Türk Kahvesi</h3>
+                <p class="product-price"><span>₺</span>140</p>
+              </div>
+              <p class="product-desc">
+                İnce öğütülmüş çekirdekler bakır cezvede, kısık ateşte usulca pişer.
+                Bol köpüklü, yanında lokum ve bir bardak suyla.
+              </p>
+              <ul class="product-notes" aria-label="Tat notaları">
+                <li>Bitter kakao</li><li>Fındık</li><li>Kadife köpük</li>
+              </ul>
+              <!-- ::after ile tüm kartı tıklanabilir yapar -->
+              <button type="button" class="recipe-trigger" aria-haspopup="dialog" aria-controls="recipe-turk">
+                Nasıl yapılır? <span>Adım adım izleyin</span>
+                <span class="btn-icon btn-icon--sm"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15 15 5m0 0H7m8 0v8" /></svg></span>
+              </button>
+              <div class="product-foot">
+                <span>Yoğunluk</span>
+                <span class="intensity" role="img" aria-label="Yoğunluk: 5 üzerinden 4">
+                  <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i>
+                </span>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card product-card--interactive reveal">
+            <div class="product-media">
+              <img src="assets/img/espresso.jpg" alt="Koyu zemin üzerinde kremalı espresso fincanı" width="800" height="600" loading="lazy">
+              <span class="chip chip--glass product-tag">Yoğun</span>
+              <span class="media-play" aria-hidden="true">
+                <svg viewBox="0 0 20 20"><path d="M7 5.5v9l7-4.5z" /></svg>
+              </span>
+            </div>
+            <div class="product-body">
+              <div class="product-head">
+                <h3 class="product-name">Espresso</h3>
+                <p class="product-price"><span>₺</span>120</p>
+              </div>
+              <p class="product-desc">
+                Yüksek basınçla 25 saniyede çekilen, altın renkli kremasıyla
+                kısa ama derin bir yudum. Tek ya da çift shot.
+              </p>
+              <ul class="product-notes" aria-label="Tat notaları">
+                <li>Karamel</li><li>Kızarmış badem</li><li>Uzun bitiş</li>
+              </ul>
+              <button type="button" class="recipe-trigger" aria-haspopup="dialog" aria-controls="recipe-espresso">
+                Nasıl yapılır? <span>Adım adım izleyin</span>
+                <span class="btn-icon btn-icon--sm"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15 15 5m0 0H7m8 0v8" /></svg></span>
+              </button>
+              <div class="product-foot">
+                <span>Yoğunluk</span>
+                <span class="intensity" role="img" aria-label="Yoğunluk: 5 üzerinden 5">
+                  <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i>
+                </span>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card product-card--interactive reveal">
+            <div class="product-media">
+              <img src="assets/img/filtre.jpg" alt="Barista Chemex ile pour-over filtre kahve demliyor" width="800" height="600" loading="lazy">
+              <span class="chip chip--glass product-tag">Modern</span>
+              <span class="media-play" aria-hidden="true">
+                <svg viewBox="0 0 20 20"><path d="M7 5.5v9l7-4.5z" /></svg>
+              </span>
+            </div>
+            <div class="product-body">
+              <div class="product-head">
+                <h3 class="product-name">Filtre Kahve</h3>
+                <p class="product-price"><span>₺</span>150</p>
+              </div>
+              <p class="product-desc">
+                Tek kökenli çekirdekler, elle ve yavaşça dökülen suyla demlenir.
+                Hafif gövdeli, berrak ve meyvemsi.
+              </p>
+              <ul class="product-notes" aria-label="Tat notaları">
+                <li>Narenciye</li><li>Bal</li><li>Çay çiçeği</li>
+              </ul>
+              <button type="button" class="recipe-trigger" aria-haspopup="dialog" aria-controls="recipe-filtre">
+                Nasıl yapılır? <span>Adım adım izleyin</span>
+                <span class="btn-icon btn-icon--sm"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15 15 5m0 0H7m8 0v8" /></svg></span>
+              </button>
+              <div class="product-foot">
+                <span>Yoğunluk</span>
+                <span class="intensity" role="img" aria-label="Yoğunluk: 5 üzerinden 2">
+                  <i class="on"></i><i class="on"></i><i></i><i></i><i></i>
+                </span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <p class="swipe-hint" aria-hidden="true">Kaydırarak keşfedin →</p>
+      </div>
+    </section>
+
+    <!-- ===== Ritüel ===== -->
+    <section class="section ritual" id="ritueller" aria-labelledby="ritual-title">
+      <div class="container">
+        <div class="ritual-card reveal">
+          <img class="bento-bg" src="assets/img/paylasim.jpg" alt="" width="1200" height="900" loading="lazy">
+          <div class="ritual-content">
+            <h2 id="ritual-title" class="sr-only">Kahve ritüelimiz</h2>
+            <blockquote class="ritual-quote">
+              <p data-split>Bir fincan kahvenin kırk yıl hatırı vardır.</p>
+            </blockquote>
+            <p class="ritual-text">
+              Yâren'de kahve hiçbir zaman yalnız içilmez. Masaya bir fincan geliyorsa,
+              yanında mutlaka bir sohbet, bir dost, bir hatıra vardır.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== Misafir yorumları (iki sıra, zıt yönlere kayar) ===== -->
+    <section class="section voices" aria-labelledby="voices-title">
+      <div class="container voices-head reveal">
+        <h2 id="voices-title" class="section-title" data-split>Masadan <em>notlar.</em></h2>
+        <p>Misafirlerimizin fincan başında bıraktığı birkaç cümle.</p>
+      </div>
+
+      <div class="voices-row">
+        <div class="voices-track">
+          <div class="voices-group">
+            <figure class="voice">
+              <p class="voice-stars" aria-label="5 üzerinden 5 yıldız">★★★★★</p>
+              <blockquote>Türk kahvesinin köpüğü tam annemin yaptığı gibi. Yanındaki lokum da cabası.</blockquote>
+              <figcaption><span class="voice-avatar">E</span><span><strong>Elif K.</strong>Türk kahvesi</span></figcaption>
+            </figure>
+            <figure class="voice voice--dark">
+              <p class="voice-stars" aria-label="5 üzerinden 5 yıldız">★★★★★</p>
+              <blockquote>Kadıköy'de içtiğim en dengeli espresso. Kreması kalın, bitişi uzun.</blockquote>
+              <figcaption><span class="voice-avatar">M</span><span><strong>Mert A.</strong>Espresso</span></figcaption>
+            </figure>
+            <figure class="voice voice--olive">
+              <p class="voice-stars" aria-label="5 üzerinden 5 yıldız">★★★★★</p>
+              <blockquote>Filtre kahvede narenciye notasını ilk kez bu kadar net aldım.</blockquote>
+              <figcaption><span class="voice-avatar">D</span><span><strong>Deniz Y.</strong>Filtre kahve</span></figcaption>
+            </figure>
+          </div>
+          <div class="voices-group" aria-hidden="true">
+            <figure class="voice">
+              <p class="voice-stars">★★★★★</p>
+              <blockquote>Türk kahvesinin köpüğü tam annemin yaptığı gibi. Yanındaki lokum da cabası.</blockquote>
+              <figcaption><span class="voice-avatar">E</span><span><strong>Elif K.</strong>Türk kahvesi</span></figcaption>
+            </figure>
+            <figure class="voice voice--dark">
+              <p class="voice-stars">★★★★★</p>
+              <blockquote>Kadıköy'de içtiğim en dengeli espresso. Kreması kalın, bitişi uzun.</blockquote>
+              <figcaption><span class="voice-avatar">M</span><span><strong>Mert A.</strong>Espresso</span></figcaption>
+            </figure>
+            <figure class="voice voice--olive">
+              <p class="voice-stars">★★★★★</p>
+              <blockquote>Filtre kahvede narenciye notasını ilk kez bu kadar net aldım.</blockquote>
+              <figcaption><span class="voice-avatar">D</span><span><strong>Deniz Y.</strong>Filtre kahve</span></figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+
+      <div class="voices-row voices-row--reverse">
+        <div class="voices-track">
+          <div class="voices-group">
+            <figure class="voice voice--olive">
+              <p class="voice-stars" aria-label="5 üzerinden 5 yıldız">★★★★★</p>
+              <blockquote>Cumartesi sabahlarımızın yeni adresi. Herkes kendi kahvesini buluyor.</blockquote>
+              <figcaption><span class="voice-avatar">S</span><span><strong>Selin &amp; Can</strong>Hafta sonu müdavimi</span></figcaption>
+            </figure>
+            <figure class="voice">
+              <p class="voice-stars" aria-label="5 üzerinden 5 yıldız">★★★★★</p>
+              <blockquote>Baristalar demleme yöntemlerini anlatırken insanın kahveye bakışı değişiyor.</blockquote>
+              <figcaption><span class="voice-avatar">B</span><span><strong>Burak T.</strong>Kahve meraklısı</span></figcaption>
+            </figure>
+            <figure class="voice voice--dark">
+              <p class="voice-stars" aria-label="5 üzerinden 5 yıldız">★★★★★</p>
+              <blockquote>Sıcak, sakin, ahşap kokulu. Kitabımı alıp saatlerce oturduğum yer.</blockquote>
+              <figcaption><span class="voice-avatar">Z</span><span><strong>Zeynep Ö.</strong>Türk kahvesi</span></figcaption>
+            </figure>
+          </div>
+          <div class="voices-group" aria-hidden="true">
+            <figure class="voice voice--olive">
+              <p class="voice-stars">★★★★★</p>
+              <blockquote>Cumartesi sabahlarımızın yeni adresi. Herkes kendi kahvesini buluyor.</blockquote>
+              <figcaption><span class="voice-avatar">S</span><span><strong>Selin &amp; Can</strong>Hafta sonu müdavimi</span></figcaption>
+            </figure>
+            <figure class="voice">
+              <p class="voice-stars">★★★★★</p>
+              <blockquote>Baristalar demleme yöntemlerini anlatırken insanın kahveye bakışı değişiyor.</blockquote>
+              <figcaption><span class="voice-avatar">B</span><span><strong>Burak T.</strong>Kahve meraklısı</span></figcaption>
+            </figure>
+            <figure class="voice voice--dark">
+              <p class="voice-stars">★★★★★</p>
+              <blockquote>Sıcak, sakin, ahşap kokulu. Kitabımı alıp saatlerce oturduğum yer.</blockquote>
+              <figcaption><span class="voice-avatar">Z</span><span><strong>Zeynep Ö.</strong>Türk kahvesi</span></figcaption>
+            </figure>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== İletişim ===== -->
+    <section class="section contact" id="iletisim" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="contact-panel">
+          <div class="contact-info reveal">
+            <h2 id="contact-title" class="section-title" data-split>Bir kahve <em>ısmarlayalım mı?</em></h2>
+            <p>Soru, öneri ya da sadece merhaba demek için bize yazın; en geç bir iş günü içinde dönüş yapıyoruz.</p>
+
+            <dl class="contact-list">
+              <div>
+                <dt>Adres</dt>
+                <dd>Moda Cad. No: 12, Kadıköy / İstanbul</dd>
+              </div>
+              <div>
+                <dt>Saatler</dt>
+                <dd>Her gün 08:00 – 22:00</dd>
+              </div>
+              <div>
+                <dt>E-posta</dt>
+                <dd><a href="mailto:merhaba@yaren.coffee">merhaba@yaren.coffee</a></dd>
+              </div>
+            </dl>
+          </div>
+
+          <div class="form-card reveal">
+            <form class="contact-form" id="contact-form" novalidate>
+              <div class="field">
+                <label for="name">Adınız</label>
+                <input id="name" name="name" type="text" autocomplete="name" placeholder="Ayşe Yılmaz" aria-describedby="name-error" required>
+                <p class="field-error" id="name-error" aria-live="polite"></p>
+              </div>
+
+              <div class="field">
+                <label for="email">E-posta adresiniz</label>
+                <input id="email" name="email" type="email" autocomplete="email" inputmode="email" placeholder="ad@ornek.com" aria-describedby="email-error" required>
+                <p class="field-error" id="email-error" aria-live="polite"></p>
+              </div>
+
+              <div class="field">
+                <label for="message">Mesajınız</label>
+                <textarea id="message" name="message" rows="5" placeholder="Merhaba Yâren…" aria-describedby="message-error" required></textarea>
+                <p class="field-error" id="message-error" aria-live="polite"></p>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-block magnetic">
+                <span class="btn-label">Mesajı gönder</span>
+                <span class="btn-icon"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15 15 5m0 0H7m8 0v8" /></svg></span>
+              </button>
+            </form>
+
+            <div class="form-success" id="form-success" role="status" tabindex="-1" hidden>
+              <svg viewBox="0 0 52 52" aria-hidden="true">
+                <circle cx="26" cy="26" r="24" />
+                <path d="M15 27l7 7 15-15" />
+              </svg>
+              <h3>Teşekkürler, <span id="success-name"></span>!</h3>
+              <p>Mesajınız bize ulaştı. Kahveler bizden, cevabımız en kısa sürede sizde.</p>
+              <button type="button" class="btn btn-ghost" id="form-reset">Yeni mesaj yaz</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===== Türk kahvesi demleme rehberi (kaydırmaya bağlı animasyon) ===== -->
+  <dialog class="recipe" id="recipe-turk" aria-labelledby="recipe-title">
+    <div class="recipe-bar">
+      <p class="recipe-bar-title"><strong>Yâren</strong> · Demleme rehberi</p>
+      <button type="button" class="recipe-close" aria-label="Rehberi kapat">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 5l10 10M15 5 5 15" /></svg>
+      </button>
+      <span class="recipe-progress" aria-hidden="true"><span></span></span>
+    </div>
+
+    <div class="recipe-layout">
+      <div class="recipe-stage">
+        <div class="recipe-stage-inner">
+          <svg class="brew" viewBox="0 180 400 260" aria-hidden="true">
+            <defs>
+              <linearGradient id="tk-copper" x1="0" x2="1">
+                <stop offset="0" stop-color="#7a4224" />
+                <stop offset="0.35" stop-color="#d08a52" />
+                <stop offset="0.6" stop-color="#b56c3c" />
+                <stop offset="1" stop-color="#6e3a1d" />
+              </linearGradient>
+              <linearGradient id="tk-wood" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#7a5236" />
+                <stop offset="1" stop-color="#4a3020" />
+              </linearGradient>
+              <clipPath id="tk-clip-cezve">
+                <path d="M92 376 H148 L140 308 Q139 302 142 298 H98 Q101 302 100 308 Z" />
+              </clipPath>
+              <clipPath id="tk-clip-cup">
+                <path d="M261 343 H319 L313.5 379 Q310.5 391 297 391 H283 Q269.5 391 266.5 379 Z" />
+              </clipPath>
+            </defs>
+
+            <!-- Tezgâh ve ocak -->
+            <rect x="0" y="400" width="400" height="40" fill="url(#tk-wood)" />
+            <path d="M0 413H400M0 427H250M290 427H400" stroke="#2b1e16" stroke-opacity="0.3" />
+            <rect x="72" y="390" width="96" height="10" rx="4" fill="#2b1e16" />
+
+            <g id="tk-flame" opacity="0">
+              <g class="brew-flicker">
+                <path d="M75 390C68 384 69 375 75 366C81 375 82 384 75 390Z" fill="#e39a4f" />
+                <path d="M165 390C158 384 159 375 165 366C171 375 172 384 165 390Z" fill="#e39a4f" />
+                <path d="M88 390C83 386 84 380 88 374C92 380 93 386 88 390Z" fill="#e39a4f" />
+                <path d="M152 390C147 386 148 380 152 374C156 380 157 386 152 390Z" fill="#e39a4f" />
+                <path d="M75 390C72 387 72 382 75 377C78 382 78 387 75 390Z" fill="#f7dcae" />
+                <path d="M165 390C162 387 162 382 165 377C168 382 168 387 165 390Z" fill="#f7dcae" />
+              </g>
+            </g>
+
+            <!-- Cezve: içi kesit gibi görünür, sıvı seviyesi JS ile değişir -->
+            <g id="tk-cezve">
+              <path d="M91 316 24 282Q17 279 15 285 14 291 20 294L89 330Z" fill="#5a3a26" />
+              <path d="M84 314 96 320 94 333 82 327Z" fill="#7a4224" />
+              <path id="tk-cezve-body" d="M84 384H156Q161 384 160 378L148 306Q147 300 151 295L162 287 146 291H89Q93 299 92 306L80 378Q79 384 84 384Z" fill="url(#tk-copper)" />
+              <path d="M92 376H148L140 308Q139 302 142 298H98Q101 302 100 308Z" fill="#2b1a10" opacity="0.6" />
+              <g clip-path="url(#tk-clip-cezve)">
+                <g id="tk-cz-level">
+                  <rect id="tk-cz-liquid" x="0" y="400" width="240" height="240" fill="#a9c4c9" />
+                  <rect id="tk-cz-foam" x="0" y="400" width="240" height="0" fill="#d4ac7e" />
+                  <g id="tk-bubbles" class="brew-bubbles" opacity="0" fill="#e3c39b">
+                    <circle cx="106" cy="0" r="2.4" /><circle cx="118" cy="-2" r="1.8" />
+                    <circle cx="129" cy="1" r="2.6" /><circle cx="137" cy="-1" r="1.6" />
+                  </g>
+                </g>
+              </g>
+              <g id="tk-stir" opacity="0">
+                <rect x="118" y="232" width="4" height="124" rx="2" fill="#e6dccb" />
+                <ellipse cx="120" cy="356" rx="7" ry="4" fill="#e6dccb" />
+              </g>
+              <path d="M84 384H156Q161 384 160 378L148 306Q147 300 151 295L162 287 146 291H89Q93 299 92 306L80 378Q79 384 84 384Z" fill="none" stroke="#5e3118" stroke-width="2" />
+              <path d="M90 291H146L162 287" fill="none" stroke="#f0bd87" stroke-width="2" stroke-linecap="round" />
+            </g>
+
+            <!-- Ölçü kaşığı ve düşen kahve taneleri -->
+            <g id="tk-scoop" opacity="0">
+              <path d="M150 226 196 196" stroke="#e6dccb" stroke-width="4" stroke-linecap="round" />
+              <ellipse cx="140" cy="232" rx="14" ry="7" fill="#e6dccb" />
+              <ellipse cx="140" cy="230" rx="10" ry="4" fill="#4a2a18" />
+            </g>
+            <g id="tk-grains" fill="#4a2a18">
+              <circle cx="112" cy="240" r="2.2" /><circle cx="120" cy="236" r="1.8" />
+              <circle cx="127" cy="242" r="2.4" /><circle cx="116" cy="246" r="1.6" />
+              <circle cx="132" cy="238" r="2" /><circle cx="108" cy="234" r="1.8" />
+              <circle cx="124" cy="248" r="2.1" /><circle cx="136" cy="246" r="1.7" />
+            </g>
+
+            <rect id="tk-sugar" x="111" y="200" width="18" height="18" rx="3" fill="#fffaf0" stroke="#d9cbb3" opacity="0" />
+
+            <!-- Cezveden fincana akan kahve -->
+            <path id="tk-stream" d="M0 0" fill="none" stroke="#4a2a18" stroke-width="5" stroke-linecap="round" opacity="0" />
+            <path id="tk-stream-flow" class="brew-stream-flow" d="M0 0" fill="none" stroke="#7a4a2c" stroke-width="2" stroke-linecap="round" opacity="0" />
+
+            <!-- Fincan ve tabak -->
+            <ellipse cx="290" cy="398" rx="54" ry="7" fill="#fffcf6" stroke="#d9cbb3" />
+            <path d="M318 351Q338 351 335 366 333 379 313 377" fill="none" stroke="#d9cbb3" stroke-width="8" stroke-linecap="round" />
+            <path d="M318 351Q338 351 335 366 333 379 313 377" fill="none" stroke="#fffcf6" stroke-width="5" stroke-linecap="round" />
+            <path d="M258 340H322L316 380Q313 394 298 394H282Q267 394 264 380Z" fill="#fffcf6" />
+            <path d="M261 343H319L313.5 379Q310.5 391 297 391H283Q269.5 391 266.5 379Z" fill="#efe6d6" />
+            <g clip-path="url(#tk-clip-cup)">
+              <rect id="tk-cup-coffee" x="250" y="400" width="80" height="60" fill="#4a2a18" />
+              <rect id="tk-cup-foam" x="250" y="400" width="80" height="0" fill="#c79a6a" />
+            </g>
+            <path d="M258 340H322L316 380Q313 394 298 394H282Q267 394 264 380Z" fill="none" stroke="#d9cbb3" stroke-width="1.5" />
+            <rect x="259" y="340" width="62" height="3" rx="1.5" fill="#4f5638" />
+
+            <!-- Servis: buhar, lokum, su -->
+            <g id="tk-steam" class="brew-steam" opacity="0" fill="none" stroke="#bfae96" stroke-width="3" stroke-linecap="round">
+              <path d="M278 326q-6-10 0-20t0-20" />
+              <path d="M291 322q-6-10 0-20t0-20" />
+              <path d="M304 326q-6-10 0-20t0-20" />
+            </g>
+            <g id="tk-lokum" opacity="0">
+              <ellipse cx="206" cy="398" rx="28" ry="5" fill="#fffcf6" stroke="#d9cbb3" />
+              <rect x="190" y="380" width="15" height="15" rx="3" fill="#f0c2bf" />
+              <rect x="207" y="382" width="14" height="13" rx="3" fill="#f6ead6" />
+              <circle cx="195" cy="384" r="1" fill="#fff" /><circle cx="213" cy="386" r="1" fill="#fff" />
+            </g>
+            <g id="tk-water" opacity="0">
+              <path d="M346 322H384L380 397H350Z" fill="#eef3f2" fill-opacity="0.7" stroke="#c6d3d2" stroke-width="1.5" />
+              <path d="M348 340H382L379.2 395H350.8Z" fill="#cfe0e2" />
+            </g>
+          </svg>
+
+          <p class="recipe-counter" aria-hidden="true"><span class="recipe-current">01</span> / 07</p>
+        </div>
+      </div>
+
+      <div class="recipe-steps">
+        <header class="recipe-intro">
+          <p class="bento-label">Demleme rehberi</p>
+          <h2 id="recipe-title">Türk kahvesi, <em>adım adım.</em></h2>
+          <p>Aşağı kaydırın; cezve sizin için demlesin. Her adımda ne yapmanız gerektiğini ve küçük püf noktalarını bulacaksınız.</p>
+          <ul class="recipe-meta">
+            <li>1 fincan</li><li>≈ 4 dakika</li><li>Kolay</li>
+          </ul>
+          <span class="recipe-scroll-hint" aria-hidden="true">Kaydırın</span>
+        </header>
+
+        <ol class="recipe-list">
+          <li class="recipe-step">
+            <span class="recipe-step-num">01</span>
+            <h3>Soğuk suyu ölçün</h3>
+            <p>Her fincan için bir Türk kahvesi fincanı dolusu soğuk içme suyunu cezveye koyun. Soğuk su, kahvenin yavaş ısınıp köpüğünü toplamasına zaman tanır.</p>
+            <ul class="recipe-meta"><li>≈ 70 ml</li><li>Soğuk su</li></ul>
+          </li>
+          <li class="recipe-step">
+            <span class="recipe-step-num">02</span>
+            <h3>Kahveyi ekleyin</h3>
+            <p>Fincan başına bir yığma tatlı kaşığı, çok ince çekilmiş taze Türk kahvesi ekleyin. Kahve bir süre suyun yüzeyinde yüzer; acele etmeyin.</p>
+            <ul class="recipe-meta"><li>≈ 7 g</li><li>Ekstra ince öğütüm</li></ul>
+          </li>
+          <li class="recipe-step">
+            <span class="recipe-step-num">03</span>
+            <h3>Şekeri ayarlayın</h3>
+            <p>Sade, az, orta ya da şekerli: Türk kahvesinde şeker pişerken eklenir, sonradan değil. Orta şekerli için bir küp yeterli.</p>
+            <ul class="recipe-meta"><li>Sade</li><li>Az</li><li>Orta</li><li>Şekerli</li></ul>
+          </li>
+          <li class="recipe-step">
+            <span class="recipe-step-num">04</span>
+            <h3>Karıştırıp ateşe alın</h3>
+            <p>Cezveyi kısık ateşe koyun ve kahve ile şeker tamamen çözünene kadar iki üç tur karıştırın. Bundan sonra kaşığı bir daha sokmayın; köpük bozulur.</p>
+            <ul class="recipe-meta"><li>Kısık ateş</li><li>2–3 tur</li></ul>
+          </li>
+          <li class="recipe-step">
+            <span class="recipe-step-num">05</span>
+            <h3>Köpüğü bekleyin</h3>
+            <p>Birkaç dakika içinde yüzeyde koyu bir köpük toplanır ve kenarlardan kabarmaya başlar. Taşmadan hemen önce cezveyi ocaktan alın.</p>
+            <ul class="recipe-meta"><li>2–3 dk</li><li>Kaynatmayın</li></ul>
+          </li>
+          <li class="recipe-step">
+            <span class="recipe-step-num">06</span>
+            <h3>Fincana dökün</h3>
+            <p>Önce köpüğü fincana paylaştırın, ardından kalan kahveyi fincanın kenarından yavaşça süzün. Yavaş dökmek köpüğü korur.</p>
+            <ul class="recipe-meta"><li>Önce köpük</li><li>Yavaşça</li></ul>
+          </li>
+          <li class="recipe-step">
+            <span class="recipe-step-num">07</span>
+            <h3>Su ve lokumla sunun</h3>
+            <p>Yanına bir bardak su ve bir parça lokum koyun. Su damağı hazırlar, lokum son yudumu tatlandırır. Telvenin dibe çökmesi için bir dakika bekleyin.</p>
+            <ul class="recipe-meta"><li>Su</li><li>Lokum</li></ul>
+          </li>
+        </ol>
+
+        <footer class="recipe-outro">
+          <h2>Afiyet olsun.</h2>
+          <p>Kırk yıl hatırı olan bir fincan hazır.</p>
+          <button type="button" class="btn btn-primary recipe-done">
+            Menüye dön
+            <span class="btn-icon"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15 15 5m0 0H7m8 0v8" /></svg></span>
+          </button>
+        </footer>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- ===== Espresso demleme rehberi ===== -->
+  <dialog class="recipe" id="recipe-espresso" aria-labelledby="recipe-espresso-title">
+    <div class="recipe-bar">
+      <p class="recipe-bar-title"><strong>Yâren</strong> · Demleme rehberi</p>
+      <button type="button" class="recipe-close" aria-label="Rehberi kapat">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 5l10 10M15 5 5 15" /></svg>
+      </button>
+      <span class="recipe-progress" aria-hidden="true"><span></span></span>
+    </div>
+
+    <div class="recipe-layout">
+      <div class="recipe-stage">
+        <div class="recipe-stage-inner">
+          <svg class="brew" viewBox="0 180 400 260" aria-hidden="true">
+            <defs>
+              <linearGradient id="es-wood" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#7a5236" />
+                <stop offset="1" stop-color="#4a3020" />
+              </linearGradient>
+              <linearGradient id="es-metal" x1="0" x2="1">
+                <stop offset="0" stop-color="#8d8b85" />
+                <stop offset="0.45" stop-color="#ebe8e1" />
+                <stop offset="1" stop-color="#a9a69f" />
+              </linearGradient>
+              <clipPath id="es-clip-hopper"><path d="M307 197H369L354 237H322Z" /></clipPath>
+              <clipPath id="es-clip-cup"><path d="M-15 -28H15L11.5 -5Q10.5 -2 7 -2H-7Q-10.5 -2-11.5 -5Z" /></clipPath>
+            </defs>
+
+            <!-- Tezgâh -->
+            <rect x="0" y="400" width="400" height="40" fill="url(#es-wood)" />
+            <path d="M0 413H400M0 427H250M290 427H400" stroke="#2b1e16" stroke-opacity="0.3" />
+
+            <!-- Espresso makinesi -->
+            <rect x="34" y="196" width="192" height="8" rx="3" fill="#d9cbb3" />
+            <rect x="30" y="204" width="200" height="196" rx="14" fill="#4f5638" />
+            <rect x="40" y="210" width="180" height="2" rx="1" fill="#6b7449" />
+            <text x="130" y="228" text-anchor="middle" font-family="Fraunces, Georgia, serif" font-size="12" fill="#f6f1e7">Yâren</text>
+            <rect x="106" y="236" width="48" height="18" rx="4" fill="#1d1a12" />
+            <text id="es-timer" x="130" y="248.5" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="9.5" fill="#c08a52">00 sn</text>
+            <circle cx="190" cy="245" r="16" fill="url(#es-metal)" />
+            <circle cx="190" cy="245" r="13" fill="#fffcf6" />
+            <path d="M181 252 183 250M190 234.5V237M199 252 197 250" stroke="#6f5f53" stroke-width="1.2" />
+            <line id="es-needle" x1="190" y1="245" x2="190" y2="235" stroke="#a3412c" stroke-width="2" stroke-linecap="round" transform="rotate(-120 190 245)" />
+            <circle cx="190" cy="245" r="2" fill="#2b1e16" />
+            <circle cx="70" cy="245" r="8" fill="#3d4329" />
+            <circle id="es-light" cx="70" cy="245" r="4.5" fill="#2b1e16" />
+            <rect x="60" y="280" width="140" height="106" rx="8" fill="#2a2d1d" />
+            <rect x="108" y="266" width="44" height="16" rx="3" fill="url(#es-metal)" />
+            <rect x="40" y="256" width="12" height="8" rx="2" fill="#2b1e16" />
+            <path d="M46 264V336Q46 346 54 348" fill="none" stroke="#bdb9b0" stroke-width="4" stroke-linecap="round" />
+            <rect x="56" y="378" width="148" height="14" rx="3" fill="url(#es-metal)" />
+            <path d="M66 385H194" stroke="#6f6d68" stroke-width="2" stroke-dasharray="3 4" />
+
+            <!-- Öğütücü -->
+            <g id="es-grinder">
+              <rect x="302" y="190" width="72" height="7" rx="3" fill="#2b1e16" />
+              <path d="M306 196H370L355 238H321Z" fill="#eef3f2" fill-opacity="0.6" />
+              <g clip-path="url(#es-clip-hopper)">
+                <g id="es-beans" fill="#5a3820">
+                  <ellipse cx="326" cy="233" rx="3.4" ry="2.2" /><ellipse cx="334" cy="234" rx="3.4" ry="2.2" />
+                  <ellipse cx="342" cy="233" rx="3.4" ry="2.2" /><ellipse cx="350" cy="234" rx="3.4" ry="2.2" />
+                  <ellipse cx="322" cy="228" rx="3.4" ry="2.2" /><ellipse cx="330" cy="229" rx="3.4" ry="2.2" />
+                  <ellipse cx="338" cy="228" rx="3.4" ry="2.2" /><ellipse cx="346" cy="229" rx="3.4" ry="2.2" />
+                  <ellipse cx="354" cy="228" rx="3.4" ry="2.2" /><ellipse cx="318" cy="223" rx="3.4" ry="2.2" />
+                  <ellipse cx="326" cy="224" rx="3.4" ry="2.2" /><ellipse cx="334" cy="223" rx="3.4" ry="2.2" />
+                  <ellipse cx="342" cy="224" rx="3.4" ry="2.2" /><ellipse cx="350" cy="223" rx="3.4" ry="2.2" />
+                  <ellipse cx="358" cy="224" rx="3.4" ry="2.2" /><ellipse cx="322" cy="218" rx="3.4" ry="2.2" />
+                  <ellipse cx="330" cy="219" rx="3.4" ry="2.2" /><ellipse cx="338" cy="218" rx="3.4" ry="2.2" />
+                  <ellipse cx="346" cy="219" rx="3.4" ry="2.2" /><ellipse cx="354" cy="218" rx="3.4" ry="2.2" />
+                </g>
+              </g>
+              <path d="M306 196H370L355 238H321Z" fill="none" stroke="#c6d3d2" stroke-width="1.5" />
+              <rect x="318" y="236" width="40" height="8" rx="2" fill="#1d1a12" />
+              <rect x="314" y="244" width="48" height="156" rx="8" fill="#2b1e16" />
+              <rect x="314" y="262" width="48" height="5" fill="#4f5638" />
+              <rect x="332" y="282" width="12" height="12" rx="2" fill="#1d1a12" />
+              <path d="M318 341H358" stroke="#8d8b85" stroke-width="3" stroke-linecap="round" />
+              <circle cx="350" cy="374" r="4" fill="#c08a52" />
+            </g>
+            <g id="es-grounds" fill="#4a2a18">
+              <circle cx="335" cy="294" r="1.6" /><circle cx="339" cy="294" r="1.4" />
+              <circle cx="341" cy="294" r="1.7" /><circle cx="337" cy="294" r="1.5" />
+              <circle cx="336" cy="294" r="1.3" /><circle cx="340" cy="294" r="1.6" />
+            </g>
+
+            <!-- Tamper -->
+            <g id="es-tamper" opacity="0">
+              <rect x="-16" y="-8" width="32" height="8" rx="2" fill="url(#es-metal)" />
+              <rect x="-4" y="-20" width="8" height="12" fill="#8d8b85" />
+              <ellipse cx="0" cy="-28" rx="9" ry="10" fill="#7a5236" />
+            </g>
+
+            <!-- Servis tabağı (fincan üstüne oturur) -->
+            <g id="es-saucer" opacity="0">
+              <ellipse cx="270" cy="398" rx="30" ry="5" fill="#fffcf6" stroke="#d9cbb3" />
+              <rect x="243" y="390" width="9" height="7" rx="1.5" fill="#4a2a18" />
+            </g>
+
+            <!-- İki ince espresso akışı -->
+            <path id="es-stream" d="M0 0" fill="none" stroke="#3b2214" stroke-width="2.6" stroke-linecap="round" opacity="0" />
+            <path id="es-stream-flow" class="brew-stream-flow" d="M0 0" fill="none" stroke="#a0643a" stroke-width="1.2" stroke-linecap="round" opacity="0" />
+
+            <!-- Fincan (yerel koordinatlar: alt orta nokta 0,0) -->
+            <g id="es-cup" transform="translate(130 378)">
+              <g id="es-steam" class="brew-steam" opacity="0" fill="none" stroke="#bfae96" stroke-width="2.5" stroke-linecap="round">
+                <path d="M-6 -36q-5-8 0-16t0-16" /><path d="M6 -36q-5-8 0-16t0-16" />
+              </g>
+              <path d="M15 -24Q26 -24 25 -16 24 -9 13 -10" fill="none" stroke="#d9cbb3" stroke-width="6" stroke-linecap="round" />
+              <path d="M15 -24Q26 -24 25 -16 24 -9 13 -10" fill="none" stroke="#fffcf6" stroke-width="3.5" stroke-linecap="round" />
+              <path d="M-17 -30H17L13 -4Q12 0 8 0H-8Q-12 0-13 -4Z" fill="#fffcf6" />
+              <path d="M-15 -28H15L11.5 -5Q10.5 -2 7 -2H-7Q-10.5 -2-11.5 -5Z" fill="#efe6d6" />
+              <g clip-path="url(#es-clip-cup)">
+                <rect id="es-cup-coffee" x="-20" y="0" width="40" height="40" fill="#3b2214" />
+                <rect id="es-crema" x="-20" y="0" width="40" height="0" fill="#c8894a" />
+              </g>
+              <path d="M-17 -30H17L13 -4Q12 0 8 0H-8Q-12 0-13 -4Z" fill="none" stroke="#d9cbb3" stroke-width="1.2" />
+              <rect x="-16.5" y="-30" width="33" height="2.5" rx="1" fill="#4f5638" />
+            </g>
+
+            <!-- Portafiltre (yerel koordinatlar: sepet merkezi 0,0) -->
+            <g id="es-pf" transform="translate(338 330)">
+              <path d="M18 -4H58Q63 -4 63 0 63 4 58 4H18Z" fill="#2b1e16" />
+              <ellipse id="es-mound" cx="0" cy="-7" rx="17" ry="0" fill="#4a2a18" />
+              <path d="M-20 -7H20L17 5Q16 8 12 8H-12Q-16 8-17 5Z" fill="url(#es-metal)" />
+              <rect x="-21" y="-8" width="42" height="3" rx="1" fill="#a9a69f" />
+              <rect x="-8" y="8" width="4" height="6" fill="#8d8b85" />
+              <rect x="4" y="8" width="4" height="6" fill="#8d8b85" />
+            </g>
+
+            <!-- Yanında su -->
+            <g id="es-water" opacity="0">
+              <path d="M332 334H362L359 398H335Z" fill="#eef3f2" fill-opacity="0.75" stroke="#c6d3d2" stroke-width="1.5" />
+              <path d="M334 348H360L357.6 396H336.4Z" fill="#cfe0e2" />
+            </g>
+          </svg>
+
+          <p class="recipe-counter" aria-hidden="true"><span class="recipe-current">01</span> / 06</p>
+        </div>
+      </div>
+
+      <div class="recipe-steps">
+        <header class="recipe-intro">
+          <p class="bento-label">Demleme rehberi</p>
+          <h2 id="recipe-espresso-title">Espresso, <em>25 saniyede.</em></h2>
+          <p>Aşağı kaydırın; öğütücüden fincana kadar her adımı makine sizin için çeksin.</p>
+          <ul class="recipe-meta">
+            <li>Çift shot</li><li>≈ 2 dakika</li><li>Orta</li>
+          </ul>
+          <span class="recipe-scroll-hint" aria-hidden="true">Kaydırın</span>
+        </header>
+
+        <ol class="recipe-list">
+          <li class="recipe-step">
+            <span class="recipe-step-num">01</span>
+            <h3>Çekirdeği öğütün</h3>
+            <p>Çift shot için 18 gram taze kavrulmuş çekirdeği sofra tuzu inceliğinde öğütün. Espressoda öğütüm, demlemenin kalbidir.</p>
+            <ul class="recipe-meta"><li>18 g</li><li>İnce öğütüm</li></ul>
+          </li>
+          <li class="recipe-step">
+            <span class="recipe-step-num">02</span>
+            <h3>Dağıtın ve sıkıştırın</h3>
+            <p>Portafiltredeki kahveyi düzleştirin, ardından tamper ile dik ve eşit bir kuvvetle bastırın. Amaç, suyun her yerden aynı hızda geçmesi.</p>
+            <ul class="recipe-meta"><li>Düz yüzey</li><li>Eşit baskı</li></ul>
+          </li>
+          <li class="recipe-step">
+            <span class="recipe-step-num">03</span>
+            <h3>Makineye takın</h3>
+            <p>Grup başlığından birkaç saniye su akıtıp ısıtın, portafiltreyi yerine oturtup sağa çevirerek kilitleyin.</p>
+            <ul class="recipe-meta"><li>Önce ısıtın</li><li>Sıkıca kilitleyin</li></ul>
+          </li>
+          <li class="recipe-step">
+            <span class="recipe-step-num">04</span>
+            <h3>Shotu çekin</h3>
+            <p>Yaklaşık 9 bar basınçta, 25–30 saniyede 36 gram kadar espresso alın. Akış bal kıvamında, ince bir ip gibi olmalı.</p>
+            <ul class="recipe-meta"><li>9 bar</li><li>25–30 sn</li><li>1:2 oran</li></ul>
+          </li>
+          <li class="recipe-step">
+            <span class="recipe-step-num">05</span>
+            <h3>Kremaya bakın</h3>
+            <p>Fındık renginde, benekli ve kalın bir krema doğru demlemenin işaretidir. Çok açıksa öğütümü inceltin, çok koyuysa kalınlaştırın.</p>
+            <ul class="recipe-meta"><li>Fındık rengi</li><li>Kalın krema</li></ul>
+          </li>
+          <li class="recipe-step">
+            <span class="recipe-step-num">06</span>
+            <h3>Hemen servis edin</h3>
+            <p>Espresso birkaç dakikada aromasını kaybeder. Yanında bir bardak su ve küçük bir çikolatayla hemen sunun.</p>
+            <ul class="recipe-meta"><li>Su</li><li>Çikolata</li></ul>
+          </li>
+        </ol>
+
+        <footer class="recipe-outro">
+          <h2>Afiyet olsun.</h2>
+          <p>Kısa ama derin bir yudum hazır.</p>
+          <button type="button" class="btn btn-primary recipe-done">
+            Menüye dön
+            <span class="btn-icon"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15 15 5m0 0H7m8 0v8" /></svg></span>
+          </button>
+        </footer>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- ===== Filtre kahve demleme rehberi ===== -->
+  <dialog class="recipe" id="recipe-filtre" aria-labelledby="recipe-filtre-title">
+    <div class="recipe-bar">
+      <p class="recipe-bar-title"><strong>Yâren</strong> · Demleme rehberi</p>
+      <button type="button" class="recipe-close" aria-label="Rehberi kapat">
+        <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 5l10 10M15 5 5 15" /></svg>
+      </button>
+      <span class="recipe-progress" aria-hidden="true"><span></span></span>
+    </div>
+
+    <div class="recipe-layout">
+      <div class="recipe-stage">
+        <div class="recipe-stage-inner">
+          <svg class="brew" viewBox="0 180 400 260" aria-hidden="true">
+            <defs>
+              <linearGradient id="fl-wood" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="#7a5236" />
+                <stop offset="1" stop-color="#4a3020" />
+              </linearGradient>
+              <clipPath id="fl-clip-cone"><path d="M186 266H254L230 310H210Z" /></clipPath>
+              <clipPath id="fl-clip-carafe"><path d="M192 326H248Q263 352 254 378H186Q177 352 192 326Z" /></clipPath>
+              <clipPath id="fl-clip-mug"><path d="M294 354H328V390Q328 396 322 396H300Q294 396 294 390Z" /></clipPath>
+            </defs>
+
+            <!-- Tezgâh, ısıtıcı taban ve terazi -->
+            <rect x="0" y="400" width="400" height="40" fill="url(#fl-wood)" />
+            <path d="M0 413H400M0 427H250M290 427H400" stroke="#2b1e16" stroke-opacity="0.3" />
+            <rect x="56" y="392" width="78" height="8" rx="3" fill="#2b1e16" />
+            <circle id="fl-base-light" cx="66" cy="396" r="1.8" fill="#6f5f53" />
+            <rect x="166" y="384" width="108" height="16" rx="4" fill="#2b1e16" />
+            <rect x="204" y="387.5" width="32" height="9" rx="2" fill="#14110b" />
+            <text id="fl-scale" x="220" y="394.6" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="7" fill="#c08a52">0 g</text>
+
+            <!-- Cam sürahi -->
+            <g clip-path="url(#fl-clip-carafe)">
+              <rect id="fl-carafe-coffee" x="170" y="378" width="100" height="80" fill="#4a2a18" />
+            </g>
+            <path d="M190 322H250Q268 352 257 381Q256 384 252 384H188Q184 384 183 381Q172 352 190 322Z" fill="#ffffff" fill-opacity="0.15" stroke="#b9c6c5" stroke-width="1.5" />
+            <path d="M257 332Q276 334 272 352 270 366 259 366" fill="none" stroke="#b9c6c5" stroke-width="4" stroke-linecap="round" />
+            <path d="M193 336Q186 352 190 372" fill="none" stroke="#ffffff" stroke-opacity="0.7" stroke-width="2" stroke-linecap="round" />
+
+            <!-- Filtreden süzülen damlalar -->
+            <path id="fl-drip" class="brew-drip" d="M0 0" fill="none" stroke="#6b3f22" stroke-width="2.5" stroke-linecap="round" opacity="0" />
+
+            <!-- Dripper: içi kesit gibi görünür -->
+            <g id="fl-dripper">
+              <rect x="196" y="312" width="48" height="7" rx="2" fill="#fffcf6" stroke="#d9cbb3" />
+              <path d="M176 260H264L234 312H206Z" fill="#fffcf6" stroke="#d9cbb3" stroke-width="1.5" />
+              <path d="M186 266H254L230 310H210Z" fill="#f3ece0" />
+              <g clip-path="url(#fl-clip-cone)">
+                <rect id="fl-water" x="170" y="320" width="100" height="60" fill="#8a5a36" fill-opacity="0.8" />
+                <rect id="fl-bed" x="170" y="320" width="100" height="60" fill="#4a2a18" />
+                <g id="fl-bubbles" class="brew-bubbles" opacity="0" fill="#c79a6a">
+                  <circle cx="208" cy="0" r="2.2" /><circle cx="218" cy="-1" r="1.7" />
+                  <circle cx="228" cy="1" r="2.4" /><circle cx="236" cy="-1" r="1.6" />
+                </g>
+              </g>
+              <path d="M182 266 186 258H254L258 266" fill="none" stroke="#e6dccb" stroke-width="2" />
+              <path d="M196 274 212 304M244 274 228 304" stroke="#e6dccb" stroke-width="1.5" />
+            </g>
+
+            <!-- Kahve dozu -->
+            <g id="fl-scoop" opacity="0">
+              <path d="M236 222H260L257 240H239Z" fill="#4f5638" />
+            </g>
+            <g id="fl-grounds" fill="#5a3820">
+              <circle cx="216" cy="236" r="1.7" /><circle cx="220" cy="236" r="1.5" />
+              <circle cx="224" cy="236" r="1.8" /><circle cx="218" cy="236" r="1.4" />
+              <circle cx="222" cy="236" r="1.6" /><circle cx="226" cy="236" r="1.5" />
+            </g>
+
+            <!-- Kettle'dan dökülen su -->
+            <path id="fl-pour" d="M0 0" fill="none" stroke="#6f9499" stroke-width="3.4" stroke-linecap="round" opacity="0" />
+            <path id="fl-pour-flow" class="brew-stream-flow" d="M0 0" fill="none" stroke="#d4e4e6" stroke-width="1.2" stroke-linecap="round" opacity="0" />
+
+            <!-- Kuğu boyunlu kettle -->
+            <g id="fl-kettle">
+              <g id="fl-kettle-steam" class="brew-steam" opacity="0" fill="none" stroke="#bfae96" stroke-width="2.5" stroke-linecap="round">
+                <path d="M171 312q-5-8 0-16t0-16" /><path d="M181 316q-5-8 0-16t0-16" />
+              </g>
+              <path d="M62 348Q42 348 42 365 42 382 62 382" fill="none" stroke="#2b1e16" stroke-width="6" stroke-linecap="round" />
+              <path d="M124 382Q148 378 149 352 150 328 170 319" fill="none" stroke="#2b1e16" stroke-width="5" stroke-linecap="round" />
+              <path d="M64 392Q60 392 60 386L64 344Q66 334 76 334H114Q124 334 126 344L130 386Q130 392 126 392Z" fill="#2b1e16" />
+              <rect x="63" y="374" width="64" height="3" fill="#c08a52" />
+              <rect x="74" y="328" width="42" height="7" rx="2" fill="#3a2a20" />
+              <circle cx="95" cy="324" r="4.5" fill="#c08a52" />
+              <text id="fl-temp" x="95" y="360" text-anchor="middle" font-family="DM Sans, sans-serif" font-size="10" fill="#f6f1e7">22°</text>
+            </g>
+
+            <!-- Servis kupası -->
+            <g id="fl-mug" opacity="0">
+              <g id="fl-mug-steam" class="brew-steam" opacity="0" fill="none" stroke="#bfae96" stroke-width="2.5" stroke-linecap="round">
+                <path d="M302 342q-5-8 0-16t0-16" /><path d="M313 338q-5-8 0-16t0-16" /><path d="M324 342q-5-8 0-16t0-16" />
+              </g>
+              <path d="M330 362Q345 362 344 375 343 388 330 387" fill="none" stroke="#d9cbb3" stroke-width="7" stroke-linecap="round" />
+              <path d="M330 362Q345 362 344 375 343 388 330 387" fill="none" stroke="#fffcf6" stroke-width="4.5" stroke-linecap="round" />
+              <path d="M290 350H332V390Q332 400 322 400H300Q290 400 290 390Z" fill="#fffcf6" />
+              <path d="M294 354H328V390Q328 396 322 396H300Q294 396 294 390Z" fill="#efe6d6" />
+              <g clip-path="url(#fl-clip-mug)">
+                <rect id="fl-mug-coffee" x="286" y="400" width="50" height="60" fill="#5a321c" />
+              </g>
+              <path d="M290 350H332V390Q332 400 322 400H300Q290 400 290 390Z" fill="none" stroke="#d9cbb3" stroke-width="1.2" />
+              <rect x="290" y="350" width="42" height="3" fill="#4f5638" />
+            </g>
+          </svg>
+
+          <p class="recipe-counter" aria-hidden="true"><span class="recipe-current">01</span> / 06</p>
+        </div>
+      </div>
+
+      <div class="recipe-steps">
+        <header class="recipe-intro">
+          <p class="bento-label">Demleme rehberi</p>
+          <h2 id="recipe-filtre-title">Filtre kahve, <em>yavaş ve berrak.</em></h2>
+          <p>Aşağı kaydırın; kettle, dripper ve terazi sizin için demlesin. Sabır, bu yöntemin gizli malzemesi.</p>
+          <ul class="recipe-meta">
+            <li>250 ml</li><li>≈ 4 dakika</li><li>Orta</li>
+          </ul>
+          <span class="recipe-scroll-hint" aria-hidden="true">Kaydırın</span>
+        </header>
+
+        <ol class="recipe-list">
+          <li class="recipe-step">
+            <span class="recipe-step-num">01</span>
+            <h3>Suyu ısıtın</h3>
+            <p>Suyu 92–94 °C'ye getirin: kaynar su kahveyi yakar, ılık su yeterince demlemez. Bu sırada kâğıt filtreyi sıcak suyla ıslatıp sürahiyi ısıtın.</p>
+            <ul class="recipe-meta"><li>93 °C</li><li>Filtreyi ıslatın</li></ul>
+          </li>
+          <li class="recipe-step">
+            <span class="recipe-step-num">02</span>
+            <h3>Kahveyi tartın</h3>
+            <p>250 ml su için 15 gram, orta incelikte öğütülmüş kahveyi filtreye koyun ve yüzeyini hafifçe düzleştirin. Ardından terazinin darasını alın.</p>
+            <ul class="recipe-meta"><li>15 g</li><li>1:16 oran</li></ul>
+          </li>
+          <li class="recipe-step">
+            <span class="recipe-step-num">03</span>
+            <h3>Kahveyi çiçeklendirin</h3>
+            <p>Kahvenin iki katı kadar suyu dairesel dökün ve 30 saniye bekleyin. Kahve kabarıp gazını bırakır; buna “bloom” denir.</p>
+            <ul class="recipe-meta"><li>40 g su</li><li>30 sn</li></ul>
+          </li>
+          <li class="recipe-step">
+            <span class="recipe-step-num">04</span>
+            <h3>Spiral çizerek dökün</h3>
+            <p>Kalan suyu merkezden dışa doğru spiraller çizerek, ince bir akışla birkaç turda dökün. Terazide toplam 250 grama ulaşın.</p>
+            <ul class="recipe-meta"><li>Spiral</li><li>250 g</li></ul>
+          </li>
+          <li class="recipe-step">
+            <span class="recipe-step-num">05</span>
+            <h3>Süzülmesini bekleyin</h3>
+            <p>Su, kahve yatağından yavaşça süzülür. Toplam süre 3–3,5 dakika olmalı; düz bir kahve yatağı eşit demlemenin işaretidir.</p>
+            <ul class="recipe-meta"><li>3–3,5 dk</li><li>Düz yatak</li></ul>
+          </li>
+          <li class="recipe-step">
+            <span class="recipe-step-num">06</span>
+            <h3>Fincana alın</h3>
+            <p>Dripper'ı kaldırın, sürahiyi hafifçe çalkalayıp kahveyi fincana dökün. Kahve soğudukça açılan meyvemsi notalara dikkat edin.</p>
+            <ul class="recipe-meta"><li>Çalkalayın</li><li>Yavaş için</li></ul>
+          </li>
+        </ol>
+
+        <footer class="recipe-outro">
+          <h2>Afiyet olsun.</h2>
+          <p>Berrak ve meyvemsi bir fincan hazır.</p>
+          <button type="button" class="btn btn-primary recipe-done">
+            Menüye dön
+            <span class="btn-icon"><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M5 15 15 5m0 0H7m8 0v8" /></svg></span>
+          </button>
+        </footer>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- ===== Alt bilgi ===== -->
+  <footer class="site-footer wood">
+    <div class="container">
+      <div class="footer-top">
+        <p class="footer-slogan">Her fincanda<br><em>ortak bir hikâye.</em></p>
+        <ul class="footer-links">
+          <li><a href="#hikaye">Hikâyemiz</a></li>
+          <li><a href="#kahveler">Kahveler</a></li>
+          <li><a href="#ritueller">Ritüel</a></li>
+          <li><a href="#iletisim">İletişim</a></li>
+        </ul>
+        <a href="#top" class="to-top magnetic" aria-label="Başa dön">
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 16V4m0 0-5 5m5-5 5 5" /></svg>
+        </a>
+      </div>
+
+      <p class="footer-wordmark" aria-hidden="true">
+        <span>Y</span><span>â</span><span>r</span><span>e</span><span>n</span>
+      </p>
+
+      <div class="footer-bottom">
+        <p>© <span id="year">2026</span> Yâren Kahve · Hayali bir markadır.</p>
+        <p>Fotoğraflar: <a href="https://unsplash.com" target="_blank" rel="noopener">Unsplash</a></p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/recipes.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>
