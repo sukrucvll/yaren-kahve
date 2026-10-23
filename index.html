@@ -266,7 +266,20 @@
           </article>
         </div>
 
-        <p class="swipe-hint" aria-hidden="true">Kaydırarak keşfedin →</p>
+        <!-- Mobil karusel kontrolleri: oklar ve hangi kahvede olunduğunu gösteren noktalar -->
+        <div class="carousel-controls">
+          <button type="button" class="carousel-arrow" data-step="-1" aria-label="Önceki kahve">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M16 10H4m0 0 5-5m-5 5 5 5" /></svg>
+          </button>
+          <div class="carousel-dots">
+            <button type="button" class="carousel-dot" aria-label="Türk Kahvesi"></button>
+            <button type="button" class="carousel-dot" aria-label="Espresso"></button>
+            <button type="button" class="carousel-dot" aria-label="Filtre Kahve"></button>
+          </div>
+          <button type="button" class="carousel-arrow" data-step="1" aria-label="Sonraki kahve">
+            <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10h12m0 0-5-5m5 5-5 5" /></svg>
+          </button>
+        </div>
       </div>
     </section>
 

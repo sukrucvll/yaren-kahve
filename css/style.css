@@ -1013,7 +1013,7 @@ figure {
   background: var(--coffee);
 }
 
-.swipe-hint {
+.carousel-controls {
   display: none;
 }
 
@@ -1028,6 +1028,15 @@ figure {
     scroll-snap-type: x mandatory;
     scroll-padding-inline: 20px;
     scrollbar-width: none;
+    overscroll-behavior-x: contain;
+    cursor: grab;
+  }
+
+  /* Fareyle sürüklerken yapışma kapanır, bırakınca en yakın karta oturur */
+  .product-grid.is-dragging {
+    scroll-snap-type: none;
+    cursor: grabbing;
+    user-select: none;
   }
 
   .product-grid::-webkit-scrollbar {
@@ -1043,11 +1052,76 @@ figure {
     transform: none;
   }
 
-  .swipe-hint {
-    display: block;
-    margin: 20px 0 0;
-    font-size: 0.85rem;
-    color: rgb(246 241 231 / 0.6);
+  .carousel-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin-top: 22px;
+  }
+
+  .carousel-arrow {
+    display: grid;
+    place-items: center;
+    width: 48px;
+    height: 48px;
+    border: 1px solid rgb(246 241 231 / 0.3);
+    border-radius: 50%;
+    background: transparent;
+    color: var(--cream);
+    cursor: pointer;
+    transition: background-color 0.25s, color 0.25s, opacity 0.25s;
+  }
+
+  .carousel-arrow:hover:not(:disabled) {
+    background: var(--cream);
+    color: var(--espresso);
+  }
+
+  .carousel-arrow:disabled {
+    opacity: 0.3;
+    cursor: default;
+  }
+
+  .carousel-arrow svg {
+    width: 20px;
+    height: 20px;
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .carousel-dots {
+    display: flex;
+    gap: 4px;
+  }
+
+  /* Görünen nokta küçük, dokunma alanı 24px */
+  .carousel-dot {
+    display: grid;
+    place-items: center;
+    width: 24px;
+    height: 24px;
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
+  }
+
+  .carousel-dot::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: rgb(246 241 231 / 0.35);
+    transition: width 0.35s var(--ease), background-color 0.35s;
+  }
+
+  .carousel-dot[aria-current="true"]::before {
+    width: 24px;
+    background: var(--cream);
   }
 }
 

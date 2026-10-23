@@ -379,6 +379,80 @@
   }
   requestAnimationFrame(onFrame);
 
+  // Mobil kahve karuseli: oklar, noktalar ve fareyle sürükleme
+  const carousel = document.querySelector(".product-grid");
+  const carouselCards = carousel.querySelectorAll(".product-card");
+  const carouselDots = document.querySelectorAll(".carousel-dot");
+  const [prevArrow, nextArrow] = document.querySelectorAll(".carousel-arrow");
+  let drag = null;
+  let suppressClick = false;
+
+  function cardStep() { return carouselCards[1].offsetLeft - carouselCards[0].offsetLeft; }
+  function maxCarouselScroll() { return carousel.scrollWidth - carousel.clientWidth; }
+
+  function currentCard() {
+    // Son kart tam hizalanamayabilir; sona gelindiyse son kart sayılır
+    if (carousel.scrollLeft >= maxCarouselScroll() - 4) return carouselCards.length - 1;
+    return Math.round(carousel.scrollLeft / cardStep());
+  }
+
+  function goToCard(index) {
+    const target = clamp(index, 0, carouselCards.length - 1);
+    carousel.scrollTo({ left: target * cardStep(), behavior: reduceMotion ? "auto" : "smooth" });
+  }
+
+  function updateCarousel() {
+    const index = currentCard();
+    carouselDots.forEach(function (dot, i) { dot.setAttribute("aria-current", String(i === index)); });
+    prevArrow.disabled = carousel.scrollLeft <= 4;
+    nextArrow.disabled = carousel.scrollLeft >= maxCarouselScroll() - 4;
+  }
+
+  prevArrow.addEventListener("click", function () { goToCard(currentCard() - 1); });
+  nextArrow.addEventListener("click", function () { goToCard(currentCard() + 1); });
+  carouselDots.forEach(function (dot, i) {
+    dot.addEventListener("click", function () { goToCard(i); });
+  });
+
+  // Dokunmatik ekranda tarayıcı zaten kaydırır; fare için tut-sürükle eklenir
+  carousel.addEventListener("pointerdown", function (event) {
+    if (event.pointerType !== "mouse" || maxCarouselScroll() <= 0) return;
+    event.preventDefault(); // görselin sürüklenmesini ve metin seçimini engeller
+    drag = { x: event.clientX, scroll: carousel.scrollLeft, moved: false };
+  });
+
+  window.addEventListener("pointermove", function (event) {
+    if (!drag) return;
+    const dx = event.clientX - drag.x;
+    if (!drag.moved && Math.abs(dx) > 5) {
+      drag.moved = true;
+      carousel.classList.add("is-dragging");
+    }
+    if (drag.moved) carousel.scrollLeft = drag.scroll - dx;
+  });
+
+  window.addEventListener("pointerup", function () {
+    if (!drag) return;
+    const moved = drag.moved;
+    drag = null;
+    if (!moved) return;
+    carousel.classList.remove("is-dragging");
+    goToCard(currentCard());
+    // Sürükleme bitince karta tıklanmış sayılıp rehber açılmasın
+    suppressClick = true;
+    setTimeout(function () { suppressClick = false; }, 50);
+  });
+
+  carousel.addEventListener("click", function (event) {
+    if (!suppressClick) return;
+    event.preventDefault();
+    event.stopPropagation();
+  }, true);
+
+  carousel.addEventListener("scroll", updateCarousel, { passive: true });
+  window.addEventListener("resize", updateCarousel);
+  updateCarousel();
+
   if (finePointer && !reduceMotion) {
     // Mıknatıslı butonlar: imlece doğru hafifçe çekilir
     document.querySelectorAll(".magnetic").forEach(function (el) {
