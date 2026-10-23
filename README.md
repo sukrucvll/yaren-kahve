@@ -2,6 +2,8 @@
 
 Geleneksel Türk kahvesini espresso ve modern demleme kültürüyle buluşturan hayali kahve markası **Yâren** için hazırlanmış, mobil uyumlu tek sayfalık web sitesi.
 
+**Canlı site:** https://sukrucvll.github.io/yaren-kahve/
+
 ## Çalıştırma
 
 Kurulum veya derleme adımı yoktur; saf HTML, CSS ve JavaScript ile yazıldı.
